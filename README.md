@@ -1,7 +1,6 @@
 # Postfix for Docker
 
-Small image (~ 4MB) for Postfix based on Alpine. This image is only for outgoing messages and allows connection to the
-SMTP server from [private networks](https://en.wikipedia.org/wiki/Private_network) (10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16) without authentication.
+Small image ( 4MB) for Postfix based on Alpine. This image is only for outgoing messages and allows connection to the SMTP server from [private networks](https://en.wikipedia.org/wiki/Private_network) (10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16) without authentication.
 
 ## Environment variables
 
@@ -14,4 +13,4 @@ Set the domain name. Also sets the host name in the e-mail address if the host n
 ### /var/spool/postfix
 
 To keep the unsent emails even when the container is restarted, create a volume
-for `/var/spool/postfix`.
+for ``/var/spool/postfix``.
