@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# set -x
+
+if [ -n "$POSTFIX_DOMAIN" ]; then
+	postconf -e "mydomain = $POSTFIX_DOMAIN"
+fi
+
+syslogd -n -O - &
+
+exec "$@"

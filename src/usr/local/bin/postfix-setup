@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -x
+
+apk add --no-cache postfix
+
+postconf -e "inet_interfaces = all"
+postconf -e "mynetworks = 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16"
+
+postconf -e "myorigin = \$mydomain"
+
+# Fügt $mydomain zur Absenderadresse hinzu (foo@bar => foo@bar.$mydomain)
+postconf -e "append_dot_mydomain = yes"
+
+# Entfernt Subdomains von der Domain des Senders, die mit $masquerade_domains enden.
+postconf -e "masquerade_domains = \$mydomain"
+
+postconf -e "local_header_rewrite_clients = permit_inet_interfaces"
+postconf -e "remote_header_rewrite_domain = \$mydomain"
