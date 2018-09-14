@@ -3,7 +3,7 @@
 set -e
 
 if [ -n "$POSTFIX_DOMAIN" ]; then
-    postconf -e "mydomain = $POSTFIX_DOMAIN"
+    postconf -e "myhostname = $POSTFIX_DOMAIN"
     postconf -e "mydomain = $POSTFIX_DOMAIN"
 fi
 
