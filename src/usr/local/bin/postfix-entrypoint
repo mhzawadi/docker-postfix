@@ -3,7 +3,8 @@
 set -e
 
 if [ -n "$POSTFIX_DOMAIN" ]; then
-	postconf -e "mydomain = $POSTFIX_DOMAIN"
+    postconf -e "mydomain = $POSTFIX_DOMAIN"
+    postconf -e "mydomain = $POSTFIX_DOMAIN"
 fi
 
 if [ -n "$POSTFIX_SMTP_TLS_SECURITY_LEVEL" ]; then
