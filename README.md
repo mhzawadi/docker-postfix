@@ -9,6 +9,9 @@ Small image (~ 4MB) for Postfix based on Alpine. This image is only for outgoing
 
 Set the domain name. Also sets the host name in the e-mail address if the host name is not an FQDN.
 
+### POSTFIX_RELAYHOST
+
+The relayhost parameter specifies the default host to send mail
 
 ### POSTFIX_SMTP_TLS_SECURITY_LEVEL
 

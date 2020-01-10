@@ -3,8 +3,12 @@
 set -e
 
 if [ -n "$POSTFIX_DOMAIN" ]; then
-    postconf -e "myhostname = $POSTFIX_DOMAIN"
+    postconf -e "myhostname = $HOSTNAME.$POSTFIX_DOMAIN"
     postconf -e "mydomain = $POSTFIX_DOMAIN"
+fi
+
+if [ -n "$POSTFIX_RELAYHOST" ]; then
+    postconf -e "relayhost = $POSTFIX_RELAYHOST"
 fi
 
 if [ -n "$POSTFIX_SMTP_TLS_SECURITY_LEVEL" ]; then

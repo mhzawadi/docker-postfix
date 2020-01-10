@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.11
 
 ENV POSTFIX_SMTP_TLS_SECURITY_LEVEL=may
 
@@ -8,4 +8,4 @@ RUN postfix-setup
 VOLUME /var/spool/postfix
 
 ENTRYPOINT ["postfix-entrypoint"]
-CMD ["/usr/lib/postfix/master", "-d"]
+CMD ["/usr/libexec/postfix/master", "-d"]
