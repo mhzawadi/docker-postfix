@@ -1,5 +1,8 @@
 # Postfix for Docker
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mhzawadi/docker-postfix/build%20our%20image%20for%20latest?label=Docker%20Latest)
+![Docker Pulls](https://img.shields.io/docker/pulls/mhzawadi/postfix)
+
 Small image (~ 4MB) for Postfix based on Alpine. This image is only for outgoing messages and allows connection to the SMTP server from [private networks](https://en.wikipedia.org/wiki/Private_network) (10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16) without authentication.
 
 
