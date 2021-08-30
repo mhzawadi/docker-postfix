@@ -1,9 +1,8 @@
-name: build our image for latest
+name: build our image for dev
 
 on:
   push:
-    tags:
-      - v*
+    branches: main
 
 jobs:
   build:
@@ -17,15 +16,10 @@ jobs:
         with:
           version: latest
           qemu-version: latest
-      - name: Prepare
-        id: prepare
-        run: |
-          VERSION=${GITHUB_REF#refs/tags/v}
-          echo ::set-output name=version::${VERSION}
       - name: login to docker hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
       - name: build the image
         run: |
           docker buildx build --push \
-            --tag mhzawadi/postfix:${{ steps.prepare.outputs.version }} \
+            --tag mhzawadi/postfix:dev \
             --platform linux/amd64,linux/arm64,linux/arm/v7 .
