@@ -1,4 +1,4 @@
-name: build our image for latest
+name: build a tagged image
 
 on:
   workflow_dispatch:
