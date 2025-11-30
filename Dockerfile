@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM alpine:3.22
 
 ENV POSTFIX_SMTP_TLS_SECURITY_LEVEL=may
 
